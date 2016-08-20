@@ -1,0 +1,19 @@
+{
+    "name": "vinaiikopp/techical-debt-aggregate",
+    "description": "Aggregate technical debt data on Magento 2 modules",
+    "require": {
+        "php": "~7.0.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "BSD-3-Clause"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "VinaiKopp\\TechnicalDebtAggregate\\": ""
+        }
+    }
+}
