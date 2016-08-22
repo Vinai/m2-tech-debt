@@ -60,7 +60,13 @@ class CollectTechnicalDebtInfoCollectors implements CollectTechnicalDebtInfoColl
      */
     public function collect(): array
     {
-        return $this->createTechnicalDebtInfoCollectors(...$this->getFilesInCollectorDirectory());
+        $filesWithoutReadme = array_values(array_filter($this->getFilesInCollectorDirectory(), [$this, 'isNotReadme']));
+        return $this->createTechnicalDebtInfoCollectors(...$filesWithoutReadme);
+    }
+
+    private function isNotReadme(\SplFileInfo $file)
+    {
+        return ! preg_match('/^readme\./i', $file->getFilename());
     }
 
     /**

@@ -62,4 +62,13 @@ class CollectTechnicalDebtInfoCollectorsTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEmpty($collectors);
         $this->assertContainsOnlyInstancesOf(TechnicalDebtInfoCollector::class, $collectors);
     }
+
+    public function testIgnoresReadmeFile()
+    {
+        $collectorCollector = new CollectTechnicalDebtInfoCollectors(__DIR__ . '/StubCollectors');
+        $collectorCollector->collect();
+        
+        $this->assertFileExists(__DIR__ . '/StubCollectors/README.md');
+        
+    }
 }
