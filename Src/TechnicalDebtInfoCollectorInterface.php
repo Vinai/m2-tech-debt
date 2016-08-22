@@ -9,6 +9,4 @@ interface TechnicalDebtInfoCollectorInterface
     public function collectForModule(string $moduleDir) : string;
 
     public function name() : string;
-
-    public function command(): string;
 }

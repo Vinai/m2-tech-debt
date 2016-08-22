@@ -68,7 +68,7 @@ class TechnicalDebtInfoCollector implements TechnicalDebtInfoCollectorInterface
         return trim(implode(PHP_EOL, $output));
     }
 
-    public function command(): string
+    private function command(): string
     {
         return trim($this->collectorScript . ' ' . $this->args);
     }

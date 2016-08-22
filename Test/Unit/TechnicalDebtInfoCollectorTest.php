@@ -47,13 +47,6 @@ class TechnicalDebtInfoCollectorTest extends \PHPUnit_Framework_TestCase
         TechnicalDebtInfoCollector::fromFilePath('does/not/exist');
     }
 
-    public function testReturnsScriptFilePathAndArgsWhenCastToString()
-    {
-        $script = $this->validCollectorScript;
-        $technicalDebtInfoCollector = TechnicalDebtInfoCollector::fromFilePath($script);
-        $this->assertEquals($script, $technicalDebtInfoCollector->command());
-    }
-
     public function testReturnsCollectorNameResult()
     {
         $technicalDebtInfoCollector = TechnicalDebtInfoCollector::fromFilePath($this->validCollectorScript);
