@@ -84,7 +84,9 @@ class CollectTechnicalDebtInfoCollectors implements CollectTechnicalDebtInfoColl
      */
     private function listDirectory(): array
     {
-        return array_values(iterator_to_array(new \FilesystemIterator($this->collectorDirPath)));
+        $collectors = iterator_to_array(new \FilesystemIterator($this->collectorDirPath));
+        ksort($collectors);
+        return array_values($collectors);
     }
 
     /**
