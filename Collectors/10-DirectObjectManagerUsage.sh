@@ -5,5 +5,5 @@
     exit
 }
 
-find "$1" -name '*.php' -not -name '*Test.php' | \
+find "$1" -name '*.php' -not -name '*Test.php' -and -not -name '*TestCase.php' | \
     xargs grep -q "ObjectManager \|ObjectManager::getInstance" && echo "yes" || echo "no" 
